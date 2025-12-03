@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 21:33:46 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/03 21:33:46 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/04 00:01:49 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,6 @@
 
 class Animal
 {
-private:
 protected:
 	std::string	type;
 public:
@@ -31,7 +30,7 @@ public:
 	std::string	getType(void) const;
 	void		setType(const std::string t);
 
-	void	makeSound();
+	void	makeSound(void) const;
 };
 
 std::ostream	&operator<<(std::ostream &os, const Animal &c);

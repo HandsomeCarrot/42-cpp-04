@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 21:33:43 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/03 22:04:08 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/04 00:07:54 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
  * @brief default constructor
  */
 Animal::Animal(void) :
-	type("seed-seven")
+	type("shell of the void")
 {
 	std::cout << "Animal default constructor called" << std::endl;
 }
@@ -84,6 +84,11 @@ void	Animal::setType(const std::string t)
  */
 std::ostream	&operator<<(std::ostream &os, const Animal &c)
 {
-	os << "Animal type: " << c.getType();
+	os << "the '" + c.getType() + "'";
 	return (os);
+}
+
+void	Animal::makeSound(void) const
+{
+	std::cout << "the voices of the void, an absence that rings like an unbearable presence" << std::endl;
 }

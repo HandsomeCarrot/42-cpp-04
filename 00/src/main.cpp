@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 21:33:40 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/03 22:02:44 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/03 23:22:47 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,4 +18,5 @@ int	main(void)
 
 	std::cout << meta << std::endl;
 	std::cout << meta.getType() << std::endl;
+	meta.makeSound();
 }

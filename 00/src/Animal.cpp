@@ -6,15 +6,15 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 21:33:43 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/03 21:33:44 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/03 22:04:08 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "Animal.hpp"
+#include "../include/Animal.hpp"
 
 /**
  * @brief default constructor
-*/
+ */
 Animal::Animal(void) :
 	type("seed-seven")
 {
@@ -23,7 +23,7 @@ Animal::Animal(void) :
 
 /**
  * @brief parameterized constructor
-*/
+ */
 Animal::Animal(const std::string &t) :
 	type(t)
 {
@@ -32,9 +32,9 @@ Animal::Animal(const std::string &t) :
 
 /**
  * @brief copy constructor
- * 
+ *
  * @param other object to copy
-*/
+ */
 Animal::Animal(const Animal &other) :
 	type(other.getType())
 {
@@ -43,7 +43,7 @@ Animal::Animal(const Animal &other) :
 
 /**
  * @brief destructor
-*/
+ */
 Animal::~Animal(void)
 {
 	std::cout << "Animal destructor called" << std::endl;
@@ -51,11 +51,11 @@ Animal::~Animal(void)
 
 /**
  * @brief assignment operator
- * 
+ *
  * @param other object to assign from
- * 
+ *
  * @return reference to 'this' object
-*/
+ */
 Animal	&Animal::operator=(const Animal &other)
 {
 	if (this != &other)
@@ -74,14 +74,14 @@ void	Animal::setType(const std::string t)
 	this->type = t;
 }
 
-/** 
+/**
  * @brief output stream operator
- * 
+ *
  * @param os reference to the outputstream
  * @param class reference to the class object
- * 
+ *
  * @return reference to the output stream
-*/
+ */
 std::ostream	&operator<<(std::ostream &os, const Animal &c)
 {
 	os << "Animal type: " << c.getType();

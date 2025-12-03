@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 21:33:48 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/03 21:33:48 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/04 00:36:59 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,12 @@
 
 class Cat: public Animal
 {
-private:
-protected:
 public:
 	Cat(void);
-	//Cat(<all parameters of class>);
 	Cat(const Cat &other);
 	~Cat(void);
 
-	Cat	&operator=(const Cat &other);
+	void	makeSound(void);
 };
 
 #endif /* CAT_HPP */

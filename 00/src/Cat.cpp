@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 21:33:56 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/03 21:33:56 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/04 00:37:05 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,11 @@
 /**
  * @brief default constructor
 */
-Cat::Cat(void) //std inits? :
+Cat::Cat(void) :
+	Animal("Cat")
 {
 	std::cout << "Cat default constructor called" << std::endl;
 }
-
-/**
- * @brief parameterized constructor
-*/
-/*
-Cat::Cat(<all parameters of class>) :
-	m_param1(param1),
-	m_param2(param2),
-	...
-{
-	std::cout << "Cat parameterized constructor called" << std::endl;
-}
-*/
 
 /**
  * @brief copy constructor
@@ -39,8 +27,7 @@ Cat::Cat(<all parameters of class>) :
  * @param other object to copy
 */
 Cat::Cat(const Cat &other) :
-	//m_param1(other.m_param1),
-	//...
+	Animal(other)
 {
 	std::cout << "Cat copy constructor called" << std::endl;
 }
@@ -53,21 +40,7 @@ Cat::~Cat(void)
 	std::cout << "Cat destructor called" << std::endl;
 }
 
-/**
- * @brief assignment operator
- * 
- * @param other object to assign from
- * 
- * @return reference to 'this' object
-*/
-Cat	&Cat::operator=(const Cat &other)
+void	Cat::makeSound(void)
 {
-	if (this != &other)
-	{
-		//m_param1 = other.m_param1;
-		//setParam1(other.getParam1());
-		//copy all params
-	}
-	std::cout << "Cat assignment operator called" << std::endl;
-	return (*this);
+	std::cout << "meow" << std::endl;
 }

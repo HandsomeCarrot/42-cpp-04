@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 21:33:43 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/04 00:07:54 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/04 00:37:02 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,11 +84,13 @@ void	Animal::setType(const std::string t)
  */
 std::ostream	&operator<<(std::ostream &os, const Animal &c)
 {
-	os << "the '" + c.getType() + "'";
+	os << "What does the '" << c.getType() << "' say? ";
+	c.makeSound();
 	return (os);
 }
 
 void	Animal::makeSound(void) const
 {
-	std::cout << "the voices of the void, an absence that rings like an unbearable presence" << std::endl;
+	std::cout << "You can not here anything, just the voices of the void, " \
+	"an absence that rings like an unbearable presence." << std::endl;
 }

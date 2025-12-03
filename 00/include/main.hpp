@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 21:33:36 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/03 21:33:37 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/04 00:14:42 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 # define MAIN_HPP
 
 # include "Animal.hpp"
+# include "Cat.hpp"
 
 #endif

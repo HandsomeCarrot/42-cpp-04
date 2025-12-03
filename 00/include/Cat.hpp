@@ -1,21 +1,32 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.cpp                                           :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/03 21:33:40 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/03 21:35:20 by vpoka            ###   ########.fr       */
+/*   Created: 2025/12/03 21:33:48 by vpoka             #+#    #+#             */
+/*   Updated: 2025/12/03 21:33:48 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "main.hpp"
+#ifndef CAT_HPP
+# define CAT_HPP
 
-int	main(void)
+# include "Animal.hpp"
+# include <iostream>
+
+class Cat: public Animal
 {
-	Animal	meta;
+private:
+protected:
+public:
+	Cat(void);
+	//Cat(<all parameters of class>);
+	Cat(const Cat &other);
+	~Cat(void);
 
-	std::cout << meta << std::endl;
-	std::cout << meta.getType() << std::endl;
-}
+	Cat	&operator=(const Cat &other);
+};
+
+#endif /* CAT_HPP */

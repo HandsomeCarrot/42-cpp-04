@@ -1,16 +1,17 @@
 #-----VARIABLES-----#
 
-NAME = exXX
+NAME = ex00
 
 CXX = c++
-CXXFLAGS = -Wall -Wextra -Werror -Wshadow -std=c++98 -MD -MP
+CXXFLAGS = -Wall -Wextra -Werror -std=c++98 -MD -MP
 
 INCLUDE = -Iinclude
 COMP = $(CXX) $(CXXFLAGS) $(INCLUDE)
 
 S = src
 SRCS =	$(addprefix $(S)/, \
-		main.cpp)
+		main.cpp \
+		Animal.cpp)
 
 B = build
 OBJS = $(SRCS:$(S)/%.cpp=$(B)/%.o)

@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 21:33:56 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/04 00:37:05 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/04 00:41:03 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ Cat::~Cat(void)
 	std::cout << "Cat destructor called" << std::endl;
 }
 
-void	Cat::makeSound(void)
+void	Cat::makeSound(void) const
 {
 	std::cout << "meow" << std::endl;
 }

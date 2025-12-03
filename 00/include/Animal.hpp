@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 21:33:46 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/04 00:37:03 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/04 00:55:07 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,14 +23,14 @@ public:
 	Animal(void);
 	Animal(const std::string &t);
 	Animal(const Animal &other);
-	~Animal(void);
+	virtual ~Animal(void);
 
 	Animal	&operator=(const Animal &other);
 
 	std::string	getType(void) const;
 	void		setType(const std::string t);
 
-	void	makeSound(void) const;
+	virtual void	makeSound(void) const;
 };
 
 std::ostream	&operator<<(std::ostream &os, const Animal &c);

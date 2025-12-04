@@ -1,21 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.hpp                                           :+:      :+:    :+:   */
+/*   Cat.hpp                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/03 21:33:36 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/04 01:01:50 by vpoka            ###   ########.fr       */
+/*   Created: 2025/12/03 21:33:48 by vpoka             #+#    #+#             */
+/*   Updated: 2025/12/04 00:42:47 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef MAIN_HPP
-# define MAIN_HPP
+#ifndef CAT_HPP
+# define CAT_HPP
 
 # include "Animal.hpp"
-# include "Cat.hpp"
-# include "Dog.hpp"
-# include <iomanip>
 
-#endif
+class Cat: public Animal
+{
+public:
+	Cat(void);
+	Cat(const Cat &other);
+	~Cat(void);
+
+	void	makeSound(void) const;
+};
+
+#endif /* CAT_HPP */

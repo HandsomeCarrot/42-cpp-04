@@ -1,3 +1,15 @@
+# **************************************************************************** #
+#                                                                              #
+#                                                         :::      ::::::::    #
+#    Makefile                                           :+:      :+:    :+:    #
+#                                                     +:+ +:+         +:+      #
+#    By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+         #
+#                                                 +#+#+#+#+#+   +#+            #
+#    Created: 2025/12/03 21:57:39 by vpoka             #+#    #+#              #
+#    Updated: 2025/12/04 17:42:53 by vpoka            ###   ########.fr        #
+#                                                                              #
+# **************************************************************************** #
+
 #-----VARIABLES-----#
 
 NAME := ex01
@@ -11,7 +23,10 @@ COMP := $(CXX) $(CXXFLAGS) $(INCLUDE)
 
 S := src
 SRCS :=	$(addprefix $(S)/, \
-		main.cpp)
+		main.cpp \
+		Animal.cpp \
+		Cat.cpp \
+		Dog.cpp)
 
 B := build
 OBJS := $(SRCS:$(S)/%.cpp=$(B)/%.o)

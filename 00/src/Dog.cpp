@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 21:33:58 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/04 01:01:11 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/04 01:13:51 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,5 +42,5 @@ Dog::~Dog(void)
 
 void	Dog::makeSound(void) const
 {
-	std::cout << "Haf" << std::endl;
+	std::cout << "Bork!" << std::endl;
 }

@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 21:33:58 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/03 21:33:59 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/04 01:01:11 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,11 @@
 /**
  * @brief default constructor
 */
-Dog::Dog(void) //std inits? :
+Dog::Dog(void) :
+	Animal("Dog")
 {
 	std::cout << "Dog default constructor called" << std::endl;
 }
-
-/**
- * @brief parameterized constructor
-*/
-/*
-Dog::Dog(<all parameters of class>) :
-	m_param1(param1),
-	m_param2(param2),
-	...
-{
-	std::cout << "Dog parameterized constructor called" << std::endl;
-}
-*/
 
 /**
  * @brief copy constructor
@@ -39,8 +27,7 @@ Dog::Dog(<all parameters of class>) :
  * @param other object to copy
 */
 Dog::Dog(const Dog &other) :
-	//m_param1(other.m_param1),
-	//...
+	Animal(other)
 {
 	std::cout << "Dog copy constructor called" << std::endl;
 }
@@ -53,21 +40,7 @@ Dog::~Dog(void)
 	std::cout << "Dog destructor called" << std::endl;
 }
 
-/**
- * @brief assignment operator
- * 
- * @param other object to assign from
- * 
- * @return reference to 'this' object
-*/
-Dog	&Dog::operator=(const Dog &other)
+void	Dog::makeSound(void) const
 {
-	if (this != &other)
-	{
-		//m_param1 = other.m_param1;
-		//setParam1(other.getParam1());
-		//copy all params
-	}
-	std::cout << "Dog assignment operator called" << std::endl;
-	return (*this);
+	std::cout << "Haf" << std::endl;
 }

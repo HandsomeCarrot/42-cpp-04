@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 21:33:36 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/04 00:57:39 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/04 01:01:50 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "Animal.hpp"
 # include "Cat.hpp"
+# include "Dog.hpp"
 # include <iomanip>
 
 #endif

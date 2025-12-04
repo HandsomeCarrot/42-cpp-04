@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 21:33:50 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/03 21:33:50 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/04 00:59:08 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,15 +17,12 @@
 
 class Dog: public Animal
 {
-private:
-protected:
 public:
 	Dog(void);
-	//Dog(<all parameters of class>);
 	Dog(const Dog &other);
 	~Dog(void);
 
-	Dog	&operator=(const Dog &other);
+	void	makeSound(void) const;
 };
 
 #endif /* DOG_HPP */

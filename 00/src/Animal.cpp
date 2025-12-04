@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 21:33:43 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/04 00:37:02 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/04 01:04:51 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,6 +91,6 @@ std::ostream	&operator<<(std::ostream &os, const Animal &c)
 
 void	Animal::makeSound(void) const
 {
-	std::cout << "You can not here anything, just the voices of the void, " \
+	std::cout << "Nothing, you hear nothing, just the voices of the void, " \
 	"an absence that rings like an unbearable presence." << std::endl;
 }

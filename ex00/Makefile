@@ -6,7 +6,7 @@
 #    By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/03 21:57:39 by vpoka             #+#    #+#              #
-#    Updated: 2025/12/04 01:01:55 by vpoka            ###   ########.fr        #
+#    Updated: 2025/12/04 17:41:42 by vpoka            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -45,22 +45,22 @@ RESET = \033[0m
 
 # Usage: $(call print_target, target_name)
 define print_target
-	@printf "$(BLUE)🛠️  Compiling target: $(CYAN)$(1)$(RESET)\n"
+	@printf "🛠️  $(BLUE)Compiling target: $(CYAN)$(1)$(RESET)\n"
 endef
 
 # Usage: $(call print_compile, file_name)
 define print_compile
-	@printf "$(YELLOW)🔧 Compiling: $(RESET)$(1)\n"
+	@printf "🔧 $(YELLOW)Compiling: $(RESET)$(1)\n"
 endef
 
 # Usage: $(call print_clean, message)
 define print_clean
-	@printf "$(RED)🧹 $(1)$(RESET)\n"
+	@printf "🧹 $(RED)$(1)$(RESET)\n"
 endef
 
 # Usage: $(call print_success, message)
 define print_success
-	@printf "$(GREEN)✨ $(1)$(RESET)\n"
+	@printf "✨ $(GREEN)$(1)$(RESET)\n"
 endef
 
 #-----RULES-----#
@@ -88,7 +88,7 @@ fclean: clean
 re: fclean all
 
 run: re
-	@printf "$(BLUE)🚀 Running $(NAME)...$(RESET)\n"
+	@printf "🚀 $(BLUE)Running $(NAME)...$(RESET)\n"
 	@printf "$(CYAN)--------------------------------$(RESET)\n"
 	@./$(NAME)
 

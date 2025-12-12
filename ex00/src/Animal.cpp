@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 21:33:43 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/04 01:04:51 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/12 15:38:23 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
  * @brief default constructor
  */
 Animal::Animal(void) :
-	type("shell of the void")
+	type_("shell of the void")
 {
 	std::cout << "Animal default constructor called" << std::endl;
 }
@@ -24,8 +24,8 @@ Animal::Animal(void) :
 /**
  * @brief parameterized constructor
  */
-Animal::Animal(const std::string &t) :
-	type(t)
+Animal::Animal(const std::string &type) :
+	type_(type)
 {
 	std::cout << "Animal parameterized constructor called" << std::endl;
 }
@@ -36,7 +36,7 @@ Animal::Animal(const std::string &t) :
  * @param other object to copy
  */
 Animal::Animal(const Animal &other) :
-	type(other.getType())
+	type_(other.getType())
 {
 	std::cout << "Animal copy constructor called" << std::endl;
 }
@@ -66,12 +66,12 @@ Animal	&Animal::operator=(const Animal &other)
 
 std::string	Animal::getType(void) const
 {
-	return (this->type);
+	return (this->type_);
 }
 
-void	Animal::setType(const std::string t)
+void	Animal::setType(const std::string type)
 {
-	this->type = t;
+	this->type_ = type;
 }
 
 /**

@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 21:33:46 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/04 00:55:07 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/12 15:38:23 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,17 +18,17 @@
 class Animal
 {
 protected:
-	std::string	type;
+	std::string	type_;
 public:
 	Animal(void);
-	Animal(const std::string &t);
+	Animal(const std::string &type);
 	Animal(const Animal &other);
 	virtual ~Animal(void);
 
 	Animal	&operator=(const Animal &other);
 
 	std::string	getType(void) const;
-	void		setType(const std::string t);
+	void		setType(const std::string type);
 
 	virtual void	makeSound(void) const;
 };

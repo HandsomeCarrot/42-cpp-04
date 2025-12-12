@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 21:33:40 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/04 01:01:39 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/12 16:15:15 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,14 @@ int	main(void)
 	std::cout << dog.getType() << std::endl;
 	dog.makeSound();
 	std::cout << dog << std::endl;
+
+	WrongCat w_cat;
+	printSeperator('-');
+	std::cout << w_cat.getType() << std::endl;
+	w_cat.makeSound();
+	std::cout << w_cat << std::endl;
+
+	std::cout << std::endl;
 
 	printSeperator('_');
 }

@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 21:33:43 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/12 15:38:23 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/12 15:54:53 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,8 @@ Animal::Animal(void) :
 
 /**
  * @brief parameterized constructor
+ *
+ * @param type type of the object
  */
 Animal::Animal(const std::string &type) :
 	type_(type)

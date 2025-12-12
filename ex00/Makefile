@@ -6,7 +6,7 @@
 #    By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/03 21:57:39 by vpoka             #+#    #+#              #
-#    Updated: 2025/12/04 17:41:42 by vpoka            ###   ########.fr        #
+#    Updated: 2025/12/12 16:14:14 by vpoka            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,9 @@ SRCS :=	$(addprefix $(S)/, \
 		main.cpp \
 		Animal.cpp \
 		Cat.cpp \
-		Dog.cpp)
+		Dog.cpp \
+		WrongAnimal.cpp \
+		WrongCat.cpp)
 
 B := build
 OBJS := $(SRCS:$(S)/%.cpp=$(B)/%.o)

@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 16:07:02 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/12 16:07:03 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/13 12:14:40 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ public:
 	WrongAnimal(void);
 	WrongAnimal(const std::string &type);
 	WrongAnimal(const WrongAnimal &other);
-	virtual ~WrongAnimal(void);
+	~WrongAnimal(void);
 
 	WrongAnimal	&operator=(const WrongAnimal &other);
 

@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 21:33:58 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/04 01:13:51 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/13 19:39:04 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
  * @brief default constructor
 */
 Dog::Dog(void) :
-	Animal("Dog")
+	Animal("Dog"),
+	brain_(new Brain())
 {
 	std::cout << "Dog default constructor called" << std::endl;
 }
@@ -27,7 +28,8 @@ Dog::Dog(void) :
  * @param other object to copy
 */
 Dog::Dog(const Dog &other) :
-	Animal(other)
+	Animal(other),
+	brain_(other.brain_)
 {
 	std::cout << "Dog copy constructor called" << std::endl;
 }
@@ -38,6 +40,7 @@ Dog::Dog(const Dog &other) :
 Dog::~Dog(void)
 {
 	std::cout << "Dog destructor called" << std::endl;
+	delete brain_;
 }
 
 void	Dog::makeSound(void) const

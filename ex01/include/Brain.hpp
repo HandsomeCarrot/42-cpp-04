@@ -6,13 +6,14 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 20:24:06 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/13 14:17:02 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/13 19:27:17 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef BRAIN_HPP
 # define BRAIN_HPP
 
+# include <string>
 # include <iostream>
 
 class Brain
@@ -26,7 +27,5 @@ public:
 
 	Brain	&operator=(const Brain &other);
 };
-
-//std::ostream	&operator<<(std::ostream &os, const Brain &c);
 
 #endif /* BRAIN_HPP */

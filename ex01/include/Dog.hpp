@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 21:33:50 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/04 00:59:08 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/13 19:28:11 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,12 @@
 # define DOG_HPP
 
 # include "Animal.hpp"
+# include "Brain.hpp"
 
 class Dog: public Animal
 {
+private:
+	Brain	*brain_;
 public:
 	Dog(void);
 	Dog(const Dog &other);

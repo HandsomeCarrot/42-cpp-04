@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 20:24:11 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/04 22:07:23 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/13 14:26:13 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ Brain::Brain(const Brain &other)
 	std::cout << "Brain copy constructor called" << std::endl;
 	for (int i = 0; i < 100; i++)
 	{
-		this->ideas[i] = other.ideas[i];
+		this->ideas_[i] = other.ideas_[i];
 	}
 }
 
@@ -55,7 +55,7 @@ Brain	&Brain::operator=(const Brain &other)
 	{
 		for (int i = 0; i < 100; i++)
 		{
-			this->ideas[i] = other.ideas[i];
+			this->ideas_[i] = other.ideas_[i];
 		}
 	}
 	std::cout << "Brain assignment operator called" << std::endl;

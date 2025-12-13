@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 21:33:56 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/04 01:09:05 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/13 14:42:24 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,8 @@
  * @brief default constructor
 */
 Cat::Cat(void) :
-	Animal("Cat")
+	Animal("Cat"),
+	brain_(new Brain())
 {
 	std::cout << "Cat default constructor called" << std::endl;
 }
@@ -27,7 +28,8 @@ Cat::Cat(void) :
  * @param other object to copy
 */
 Cat::Cat(const Cat &other) :
-	Animal(other)
+	Animal(other),
+	brain_(other.brain_)
 {
 	std::cout << "Cat copy constructor called" << std::endl;
 }
@@ -38,6 +40,7 @@ Cat::Cat(const Cat &other) :
 Cat::~Cat(void)
 {
 	std::cout << "Cat destructor called" << std::endl;
+	delete brain_;
 }
 
 void	Cat::makeSound(void) const

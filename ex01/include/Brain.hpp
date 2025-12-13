@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 20:24:06 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/04 20:53:37 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/13 14:17:02 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,14 +17,14 @@
 
 class Brain
 {
+private:
+	std::string	ideas_[100];
 public:
 	Brain(void);
 	Brain(const Brain &other);
 	~Brain(void);
 
 	Brain	&operator=(const Brain &other);
-
-	std::string	ideas[100];
 };
 
 //std::ostream	&operator<<(std::ostream &os, const Brain &c);

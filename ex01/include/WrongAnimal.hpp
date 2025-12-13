@@ -1,38 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Animal.hpp                                         :+:      :+:    :+:   */
+/*   WrongAnimal.hpp                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/03 21:33:46 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/12 15:38:23 by vpoka            ###   ########.fr       */
+/*   Created: 2025/12/12 16:07:02 by vpoka             #+#    #+#             */
+/*   Updated: 2025/12/13 12:14:40 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ANIMAL_HPP
-# define ANIMAL_HPP
+#ifndef WRONGANIMAL_HPP
+# define WRONGANIMAL_HPP
 
 # include <iostream>
 
-class Animal
+class WrongAnimal
 {
 protected:
 	std::string	type_;
 public:
-	Animal(void);
-	Animal(const std::string &type);
-	Animal(const Animal &other);
-	virtual ~Animal(void);
+	WrongAnimal(void);
+	WrongAnimal(const std::string &type);
+	WrongAnimal(const WrongAnimal &other);
+	~WrongAnimal(void);
 
-	Animal	&operator=(const Animal &other);
+	WrongAnimal	&operator=(const WrongAnimal &other);
 
 	std::string	getType(void) const;
 	void		setType(const std::string type);
 
-	virtual void	makeSound(void) const;
+	void	makeSound(void) const;
 };
 
-std::ostream	&operator<<(std::ostream &os, const Animal &c);
+std::ostream	&operator<<(std::ostream &os, const WrongAnimal &c);
 
-#endif /* ANIMAL_HPP */
+#endif /* WRONGANIMAL_HPP */

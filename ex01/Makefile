@@ -6,13 +6,13 @@
 #    By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/03 21:57:39 by vpoka             #+#    #+#              #
-#    Updated: 2025/12/12 16:14:14 by vpoka            ###   ########.fr        #
+#    Updated: 2025/12/13 19:04:50 by vpoka            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 #-----VARIABLES-----#
 
-NAME := ex00
+NAME := ex01
 
 CXX := c++
 CXXFLAGS := -Wall -Wextra -Werror -std=c++98
@@ -28,7 +28,8 @@ SRCS :=	$(addprefix $(S)/, \
 		Cat.cpp \
 		Dog.cpp \
 		WrongAnimal.cpp \
-		WrongCat.cpp)
+		WrongCat.cpp \
+		Brain.cpp)
 
 B := build
 OBJS := $(SRCS:$(S)/%.cpp=$(B)/%.o)

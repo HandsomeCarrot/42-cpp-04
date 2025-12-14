@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 21:33:40 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/14 00:08:46 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/14 19:20:16 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,77 +29,68 @@ static void	printSeperator(const std::string &c, int width, const char *color)
 	std::cout << std::endl;
 }
 
+void printHeader(std::string title)
+{
+	printSeperator("=", 30, GREEN);
+	std::cout << YELLOW << title << RESET << std::endl;
+	printSeperator("=", 30, GREEN);
+}
+
 int	main(void)
 {
-	std::cout << GREEN"ANIMAL" << std::endl;
-	printSeperator("▾", 20, BLUE);
-	Animal	meta;
-	printSeperator("-", 0, YELLOW);
-	std::cout << meta.getType() << std::endl;
-	meta.makeSound();
-	std::cout << meta << std::endl;
+	// Standard test cases
+	printHeader("Standard tests");
+
+	const Animal* animal = new Animal();
+	printSeperator("-", 10, NULL);
+	std::cout << "Animal Sound: ";
+	animal->makeSound();
+	printSeperator("-", 10, RED);
+	delete animal;
+	printSeperator("-", 10, RED);
+	std::cout << std::endl;
+
+	const Animal* dog = new Dog();
+	printSeperator("-", 10, NULL);
+	std::cout << "Dog Type: " << dog->getType() << " " << std::endl;
+	printSeperator("-", 5, NULL);
+	std::cout << "Sound: ";
+	dog->makeSound();
+	printSeperator("-", 10, RED);
+	delete dog;
+	printSeperator("-", 10, RED);
+	std::cout << std::endl;
+
+	const Animal* cat = new Cat();
+	printSeperator("-", 10, NULL);
+	std::cout << "Cat Type: " << cat->getType() << " " << std::endl;
+	printSeperator("-", 5, NULL);
+	std::cout << "Sound: ";
+	cat->makeSound();
+	printSeperator("-", 10, RED);
+	delete cat;
+	printSeperator("-", 10, RED);
+	std::cout << std::endl;
+
+	// WrongAnimal test cases
+	printHeader("WrongAnimal Test");
 	
+	const WrongAnimal* wrong_animal = new WrongAnimal();
+	printSeperator("-", 10, NULL);
+	std::cout << "WrongAnimal Sound: ";
+	wrong_animal->makeSound();
+	printSeperator("-", 10, RED);
+	delete wrong_animal;
+	printSeperator("-", 10, RED);
 	std::cout << std::endl;
 
-	std::cout << GREEN"CAT" << std::endl;
-	printSeperator("▾", 20, BLUE);
-	Cat cat;
-	printSeperator("-", 0, YELLOW);
-	std::cout << cat.getType() << std::endl;
-	cat.makeSound();
-	std::cout << cat << std::endl;
-
-	std::cout << std::endl;
-
-	std::cout << GREEN"ANIMAL_CAT" << std::endl;
-	printSeperator("▾", 20, BLUE);
-	Animal *animal_cat = new Cat();
-	printSeperator("-", 0, YELLOW);
-	std::cout << animal_cat->getType() << std::endl;
-	animal_cat->makeSound();
-	std::cout << *animal_cat << std::endl;
-
-	std::cout << std::endl;
-
-	std::cout << GREEN"DOG" << std::endl;
-	printSeperator("▾", 20, BLUE);
-	Dog dog;
-	printSeperator("-", 0, YELLOW);
-	std::cout << dog.getType() << std::endl;
-	dog.makeSound();
-	std::cout << dog << std::endl;
-	
-	std::cout << std::endl;
-
-	std::cout << GREEN"WRONG_ANIMAL" << std::endl;
-	printSeperator("▾", 20, BLUE);
-	WrongAnimal w_meta;
-	printSeperator("-", 0, YELLOW);
-	std::cout << w_meta.getType() << std::endl;
-	w_meta.makeSound();
-	std::cout << w_meta << std::endl;
-	
-	std::cout << std::endl;
-
-	std::cout << GREEN"WRONG_CAT" << std::endl;
-	printSeperator("▾", 20, BLUE);
-	WrongCat w_cat;
-	printSeperator("-", 0, YELLOW);
-	std::cout << w_cat.getType() << std::endl;
-	w_cat.makeSound();
-	std::cout << w_cat << std::endl;
-
-	std::cout << std::endl;
-
-	std::cout << GREEN"WRONG_ANIMAL_CAT" << std::endl;
-	printSeperator("▾", 20, BLUE);
-	WrongAnimal *w_animal_cat = new WrongCat();
-	printSeperator("-", 0, YELLOW);
-	std::cout << w_animal_cat->getType() << std::endl;
-	w_animal_cat->makeSound();
-	std::cout << *w_animal_cat << std::endl;
-
-	printSeperator("_", 0, RED);
-	delete animal_cat;
-	delete w_animal_cat;
+	const WrongAnimal* wrong_cat = new WrongCat();
+	printSeperator("-", 10, NULL);
+	std::cout << "WrongCat Type: " << wrong_cat->getType() << " " << std::endl;
+	printSeperator("-", 5, NULL);
+	std::cout << "WrongCat Sound (Should be WrongAnimal sound): ";
+	wrong_cat->makeSound();
+	printSeperator("-", 10, RED);
+	delete wrong_cat;
+	printSeperator("-", 10, RED);
 }

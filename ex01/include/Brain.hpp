@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 20:24:06 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/14 15:56:33 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/14 21:10:35 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,6 +27,9 @@ public:
 	~Brain(void);
 
 	Brain	&operator=(const Brain &other);
+
+	std::string	getIdea(int index) const;
+	void		setIdea(int index, const std::string &idea);
 };
 
 #endif /* BRAIN_HPP */

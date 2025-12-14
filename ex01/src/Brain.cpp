@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 20:24:11 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/14 15:56:19 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/14 21:10:49 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,4 +68,28 @@ Brain	&Brain::operator=(const Brain &other)
 	return (*this);
 }
 
+/**
+ * @brief get idea at specified index
+ *
+ * @param index index of idea to get (0-99)
+ *
+ * @return idea string at index, or empty string if index is out of bounds
+ */
+std::string	Brain::getIdea(int index) const
+{
+	if (index < 0 || index >= 100)
+		return ("");
+	return (this->ideas_[index]);
+}
 
+/**
+ * @brief set idea at specified index
+ *
+ * @param index index of idea to set (0-99)
+ * @param idea idea string to set
+ */
+void	Brain::setIdea(int index, const std::string &idea)
+{
+	if (index >= 0 && index < 100)
+		this->ideas_[index] = idea;
+}

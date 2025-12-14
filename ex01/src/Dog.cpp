@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 21:33:58 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/14 14:52:43 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/14 21:10:53 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,14 @@ Dog	&Dog::operator=(const Dog &other)
 void	Dog::makeSound(void) const
 {
 	std::cout << "Bork!" << std::endl;
+}
+
+/**
+ * @brief get brain pointer
+ *
+ * @return pointer to the Dog's Brain
+ */
+Brain	*Dog::getBrain(void) const
+{
+	return (this->brain_);
 }

@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 21:33:56 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/14 14:52:37 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/14 21:10:55 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -64,4 +64,14 @@ Cat	&Cat::operator=(const Cat &other)
 void	Cat::makeSound(void) const
 {
 	std::cout << "Nyanyanyanyanyanyanya!" << std::endl;
+}
+
+/**
+ * @brief get brain pointer
+ *
+ * @return pointer to the Cat's Brain
+ */
+Brain	*Cat::getBrain(void) const
+{
+	return (this->brain_);
 }

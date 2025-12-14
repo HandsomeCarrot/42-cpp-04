@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 21:33:50 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/14 14:51:38 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/14 21:10:39 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,8 @@ public:
 	Dog	&operator=(const Dog &other);
 
 	void	makeSound(void) const;
+
+	Brain	*getBrain(void) const;
 };
 
 #endif /* DOG_HPP */

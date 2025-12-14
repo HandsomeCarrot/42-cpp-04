@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 20:24:06 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/13 19:27:17 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/14 15:56:33 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include <string>
 # include <iostream>
+# include <sstream>
 
 class Brain
 {

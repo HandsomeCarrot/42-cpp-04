@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/04 20:24:11 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/13 14:26:13 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/14 15:56:19 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,12 @@
 Brain::Brain(void)
 {
 	std::cout << "Brain default constructor called" << std::endl;
+	for (int i = 0; i < 100; i++)
+	{
+		std::ostringstream oss;
+		oss << i;
+		this->ideas_[i] = oss.str();
+	}
 }
 
 /**

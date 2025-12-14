@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 21:33:58 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/13 19:39:04 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/14 14:52:43 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Dog::Dog(void) :
 */
 Dog::Dog(const Dog &other) :
 	Animal(other),
-	brain_(other.brain_)
+	brain_(new Brain(*other.brain_))
 {
 	std::cout << "Dog copy constructor called" << std::endl;
 }
@@ -41,6 +41,24 @@ Dog::~Dog(void)
 {
 	std::cout << "Dog destructor called" << std::endl;
 	delete brain_;
+}
+
+/**
+ * @brief assignment operator
+ *
+ * @param other object to assign from
+ *
+ * @return reference to 'this' object
+ */
+Dog	&Dog::operator=(const Dog &other)
+{
+	if (this != &other)
+	{
+		Animal::operator=(other);
+		*brain_ = *other.brain_;
+	}
+	std::cout << "Dog assignment operator called" << std::endl;
+	return (*this);
 }
 
 void	Dog::makeSound(void) const

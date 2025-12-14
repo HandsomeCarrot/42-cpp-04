@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 21:33:48 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/13 14:40:52 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/14 14:51:35 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ public:
 	Cat(void);
 	Cat(const Cat &other);
 	~Cat(void);
+
+	Cat	&operator=(const Cat &other);
 
 	void	makeSound(void) const;
 };

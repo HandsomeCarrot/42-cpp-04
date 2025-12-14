@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/12 16:06:51 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/12 16:11:16 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/14 14:52:45 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,23 @@ WrongCat::WrongCat(const WrongCat &other) :
 WrongCat::~WrongCat(void)
 {
 	std::cout << "WrongCat destructor called" << std::endl;
+}
+
+/**
+ * @brief assignment operator
+ *
+ * @param other object to assign from
+ *
+ * @return reference to 'this' object
+ */
+WrongCat	&WrongCat::operator=(const WrongCat &other)
+{
+	if (this != &other)
+	{
+		WrongAnimal::operator=(other);
+	}
+	std::cout << "WrongCat assignment operator called" << std::endl;
+	return (*this);
 }
 
 void	WrongCat::makeSound(void) const

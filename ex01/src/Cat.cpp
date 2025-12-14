@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/03 21:33:56 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/13 14:42:24 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/14 14:52:37 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ Cat::Cat(void) :
 */
 Cat::Cat(const Cat &other) :
 	Animal(other),
-	brain_(other.brain_)
+	brain_(new Brain(*other.brain_))
 {
 	std::cout << "Cat copy constructor called" << std::endl;
 }
@@ -41,6 +41,24 @@ Cat::~Cat(void)
 {
 	std::cout << "Cat destructor called" << std::endl;
 	delete brain_;
+}
+
+/**
+ * @brief assignment operator
+ *
+ * @param other object to assign from
+ *
+ * @return reference to 'this' object
+ */
+Cat	&Cat::operator=(const Cat &other)
+{
+	if (this != &other)
+	{
+		Animal::operator=(other);
+		*brain_ = *other.brain_;
+	}
+	std::cout << "Cat assignment operator called" << std::endl;
+	return (*this);
 }
 
 void	Cat::makeSound(void) const

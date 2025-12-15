@@ -24,6 +24,8 @@ void printSubHeader(std::string title)
 
 int	main(void)
 {
+	// The line below won't work anymore, as the animal class is pure virtual and can not exist on its own.
+	// Animal	a;
 	printHeader("Array of Animals");
 
 	int arraySize = 4;

@@ -6,28 +6,22 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:17:47 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/15 18:17:48 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/15 20:33:54 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef IMATERIASOURCE_HPP
 # define IMATERIASOURCE_HPP
 
-# include <iostream>
+# include "AMateria.hpp"
 
 class IMateriaSource
 {
-private:
-protected:
 public:
-	IMateriaSource(void);
-	//IMateriaSource(<all parameters of class>);
-	IMateriaSource(const IMateriaSource &other);
-	~IMateriaSource(void);
+	virtual ~IMateriaSource() {}
 
-	IMateriaSource	&operator=(const IMateriaSource &other);
+	virtual void learnMateria(AMateria*) = 0;
+	virtual AMateria* createMateria(std::string const & type) = 0;
 };
-
-//std::ostream	&operator<<(std::ostream &os, const IMateriaSource &c);
 
 #endif /* IMATERIASOURCE_HPP */

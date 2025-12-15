@@ -6,7 +6,7 @@
 #    By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/15 18:08:01 by vpoka             #+#    #+#              #
-#    Updated: 2025/12/15 18:09:41 by vpoka            ###   ########.fr        #
+#    Updated: 2025/12/15 20:34:09 by vpoka            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,6 +23,11 @@ COMP := $(CXX) $(CXXFLAGS) $(INCLUDE)
 
 S := src
 SRCS :=	$(addprefix $(S)/, \
+		AMateria.cpp \
+		MateriaSource.cpp \
+		Character.cpp \
+		Ice.cpp \
+		Cure.cpp \
 		main.cpp)
 
 B := build

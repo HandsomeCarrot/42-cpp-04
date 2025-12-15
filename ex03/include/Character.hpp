@@ -6,26 +6,36 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:17:40 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/15 18:17:41 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/15 21:54:23 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef CHARACTER_HPP
 # define CHARACTER_HPP
 
+# include "AMateria.hpp"
+# include "ICharacter.hpp"
 # include <iostream>
 
-class Character
+class Character : public ICharacter
 {
-private:
 protected:
+	std::string name_;
+	AMateria* inventory_[4];
 public:
 	Character(void);
-	//Character(<all parameters of class>);
+	Character(std::string const &name);
 	Character(const Character &other);
 	~Character(void);
 
 	Character	&operator=(const Character &other);
+
+	std::string const &getName() const;
+
+	void equip(AMateria* m);
+	void unequip(int idx);
+
+	void use(int idx, ICharacter& target);
 };
 
 //std::ostream	&operator<<(std::ostream &os, const Character &c);

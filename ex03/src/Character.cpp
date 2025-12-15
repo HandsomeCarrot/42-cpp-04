@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:17:57 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/15 18:17:59 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/15 22:06:32 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 /**
  * @brief default constructor
 */
-Character::Character(void) //std inits? :
+Character::Character(void) :
+	name_("default")
 {
 	std::cout << "Character default constructor called" << std::endl;
 }
@@ -23,15 +24,11 @@ Character::Character(void) //std inits? :
 /**
  * @brief parameterized constructor
 */
-/*
-Character::Character(<all parameters of class>) :
-	m_param1(param1),
-	m_param2(param2),
-	...
+Character::Character(std::string const &name) :
+	name_(name)
 {
 	std::cout << "Character parameterized constructor called" << std::endl;
 }
-*/
 
 /**
  * @brief copy constructor
@@ -39,7 +36,6 @@ Character::Character(<all parameters of class>) :
  * @param other object to copy
 */
 Character::Character(const Character &other) :
-	//m_param1(other.m_param1),
 	//...
 {
 	std::cout << "Character copy constructor called" << std::endl;

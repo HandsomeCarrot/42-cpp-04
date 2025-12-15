@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:17:38 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/15 18:17:39 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/15 20:58:46 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,17 +17,24 @@
 
 class AMateria
 {
-private:
 protected:
+	// [...]
 public:
 	AMateria(void);
-	//AMateria(<all parameters of class>);
+	AMateria(std::string const & type);
 	AMateria(const AMateria &other);
 	~AMateria(void);
 
 	AMateria	&operator=(const AMateria &other);
+
+	// [...]
+
+	std::string const & getType() const; //Returns the materia type
+
+	virtual AMateria* clone() const = 0;
+	virtual void use(ICharacter& target);
 };
 
-//std::ostream	&operator<<(std::ostream &os, const AMateria &c);
+std::ostream	&operator<<(std::ostream &os, const AMateria &c);
 
 #endif /* AMATERIA_HPP */

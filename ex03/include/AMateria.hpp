@@ -6,32 +6,31 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:17:38 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/15 20:58:46 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/16 17:21:27 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef AMATERIA_HPP
 # define AMATERIA_HPP
 
-# include <iostream>
+# include "ICharacter.hpp"
+# include "iostream"
 
 class AMateria
 {
 protected:
-	// [...]
+	std::string type_;
 public:
 	AMateria(void);
-	AMateria(std::string const & type);
-	AMateria(const AMateria &other);
+	AMateria(std::string const &type);
+	AMateria(AMateria const &other);
 	~AMateria(void);
 
-	AMateria	&operator=(const AMateria &other);
+	AMateria	&operator=(AMateria const &other);
 
-	// [...]
+	std::string const &getType(void) const;
 
-	std::string const & getType() const; //Returns the materia type
-
-	virtual AMateria* clone() const = 0;
+	virtual AMateria* clone(void) const = 0;
 	virtual void use(ICharacter& target);
 };
 

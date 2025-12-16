@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:17:53 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/15 18:17:54 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/16 17:22:28 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 /**
  * @brief default constructor
 */
-AMateria::AMateria(void) //std inits? :
+AMateria::AMateria(void) :
+	type_("default")
 {
 	std::cout << "AMateria default constructor called" << std::endl;
 }
@@ -23,31 +24,26 @@ AMateria::AMateria(void) //std inits? :
 /**
  * @brief parameterized constructor
 */
-/*
-AMateria::AMateria(<all parameters of class>) :
-	m_param1(param1),
-	m_param2(param2),
-	...
+AMateria::AMateria(std::string const &type) :
+	type_(type)
 {
 	std::cout << "AMateria parameterized constructor called" << std::endl;
 }
-*/
 
 /**
  * @brief copy constructor
- * 
+ *
  * @param other object to copy
-*/
-AMateria::AMateria(const AMateria &other) :
-	//m_param1(other.m_param1),
-	//...
+ */
+AMateria::AMateria(AMateria const &other) :
+	type_(other.getType())
 {
 	std::cout << "AMateria copy constructor called" << std::endl;
 }
 
 /**
  * @brief destructor
-*/
+ */
 AMateria::~AMateria(void)
 {
 	std::cout << "AMateria destructor called" << std::endl;
@@ -59,15 +55,11 @@ AMateria::~AMateria(void)
  * @param other object to assign from
  * 
  * @return reference to 'this' object
-*/
-AMateria	&AMateria::operator=(const AMateria &other)
+ *
+ * @note doesn't actually do anything
+ */
+AMateria	&AMateria::operator=(AMateria const &other)
 {
-	if (this != &other)
-	{
-		//m_param1 = other.m_param1;
-		//setParam1(other.getParam1());
-		//copy all params
-	}
 	std::cout << "AMateria assignment operator called" << std::endl;
 	return (*this);
 }
@@ -80,10 +72,24 @@ AMateria	&AMateria::operator=(const AMateria &other)
  * 
  * @return reference to the output stream
 */
-/*
 std::ostream	&operator<<(std::ostream &os, const AMateria &c)
 {
-	os << "some info about AMateria";
+	os << c.getType();
 	return (os);
 }
+
+/**
+ * @return const reference to the 'type' string
+ */
+std::string const &AMateria::getType(void) const
+{
+	return (type_);
+}
+
+/** 
+ * @brief prints a message
 */
+void AMateria::use(ICharacter& target)
+{
+	std::cout << "Did nothing to " << target.getName() << std::endl;
+}

@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:17:57 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/17 17:09:00 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/17 18:34:24 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,6 +50,8 @@ Character::Character(const Character &other) :
 	{
 		if (other.inventory_[i])
 			this->inventory_[i] = other.inventory_[i]->clone();
+		else
+			this->inventory_[i] = NULL;
 	}
 }
 
@@ -61,7 +63,7 @@ Character::~Character(void)
 	DEBUG_MSG("Character destructor called");
 	for (int i = 0; i < 4; i++)
 	{
-		if (this->inventory_[i])
+		if (this->inventory_[i] != NULL)
 			delete this->inventory_[i];
 	}
 }
@@ -101,7 +103,7 @@ void Character::equip(AMateria* m)
 {
 	for (int i = 0; i < 4; i++)
 	{
-		if (!this->inventory_[i])
+		if (this->inventory_[i] == NULL)
 		{
 			this->inventory_[i] = m;
 			DEBUG_MSG(*this << " equipped " << *m << " in slot " << i);

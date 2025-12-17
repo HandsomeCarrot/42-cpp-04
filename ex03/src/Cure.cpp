@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:18:00 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/17 14:11:43 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/17 17:10:28 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 Cure::Cure(void) :
 	AMateria("cure")
 {
-	std::cout << "Cure default constructor called" << std::endl;
+	DEBUG_MSG("Cure default constructor called");
 }
 
 /**
@@ -29,7 +29,7 @@ Cure::Cure(void) :
 Cure::Cure(const Cure &other) :
 	AMateria(other)
 {
-	std::cout << "Cure copy constructor called" << std::endl;
+	DEBUG_MSG("Cure copy constructor called");
 }
 
 /**
@@ -37,7 +37,7 @@ Cure::Cure(const Cure &other) :
 */
 Cure::~Cure(void)
 {
-	std::cout << "Cure destructor called" << std::endl;
+	DEBUG_MSG("Cure destructor called");
 }
 
 /**
@@ -51,7 +51,7 @@ Cure	&Cure::operator=(const Cure &other)
 {
 	if (this != &other)
 		AMateria::operator=(other);
-	std::cout << "Cure assignment operator called" << std::endl;
+	DEBUG_MSG("Cure assignment operator called");
 	return (*this);
 }
 

@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:17:40 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/17 14:18:59 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/17 17:07:07 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 
 # include "AMateria.hpp"
 # include "ICharacter.hpp"
+# include "debug.hpp"
 # include <iostream>
 
 class Character : public ICharacter

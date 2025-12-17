@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:18:09 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/17 16:24:44 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/17 17:09:57 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 MateriaSource::MateriaSource(void) :
 	storage_used_(0)
 {
-	std::cout << "MateriaSource default constructor called" << std::endl;
+	DEBUG_MSG("MateriaSource default constructor called");
 	for (int i = 0; i < 4; i++)
 		this->storage_[i] = NULL;
 }
@@ -31,7 +31,7 @@ MateriaSource::MateriaSource(void) :
 MateriaSource::MateriaSource(const MateriaSource &other) :
 	storage_used_(other.storage_used_)
 {
-	std::cout << "MateriaSource copy constructor called" << std::endl;
+	DEBUG_MSG("MateriaSource copy constructor called");
 	for (int i = 0; i < 4; i++)
 	{
 		if (other.storage_[i])
@@ -44,7 +44,7 @@ MateriaSource::MateriaSource(const MateriaSource &other) :
 */
 MateriaSource::~MateriaSource(void)
 {
-	std::cout << "MateriaSource destructor called" << std::endl;
+	DEBUG_MSG("MateriaSource destructor called");
 	for (int i = 0; i < 4; i++)
 	{
 		if (this->storage_[i])
@@ -61,7 +61,7 @@ MateriaSource::~MateriaSource(void)
 */
 MateriaSource	&MateriaSource::operator=(const MateriaSource &other)
 {
-	std::cout << "MateriaSource assignment operator called" << std::endl;
+	DEBUG_MSG("MateriaSource assignment operator called");
 	if (this != &other)
 	{
 		this->storage_used_ = other.storage_used_;

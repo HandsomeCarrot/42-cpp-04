@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:17:50 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/17 16:12:51 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/17 17:12:45 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include "AMateria.hpp"
 # include "IMateriaSource.hpp"
-# include <iostream>
+# include "debug.hpp"
 
 class MateriaSource : public IMateriaSource
 {

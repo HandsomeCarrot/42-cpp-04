@@ -6,7 +6,7 @@
 #    By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/12/15 18:08:01 by vpoka             #+#    #+#              #
-#    Updated: 2025/12/17 16:15:34 by vpoka            ###   ########.fr        #
+#    Updated: 2025/12/17 17:16:22 by vpoka            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -89,11 +89,14 @@ fclean: clean
 
 re: fclean all
 
+debug: fclean
+	@make --no-print-directory all CXXFLAGS="$(CXXFLAGS) -DDEBUG"
+
 run: re
 	@printf "🚀 $(BLUE)Running $(NAME)...$(RESET)\n"
 	@printf "$(CYAN)--------------------------------$(RESET)\n"
 	@./$(NAME)
 
-.PHONY: all clean fclean re run
+.PHONY: all clean fclean re debug run
 
 -include $(DEPS)

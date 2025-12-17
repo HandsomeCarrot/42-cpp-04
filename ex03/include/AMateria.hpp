@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:17:38 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/17 14:20:05 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/17 17:06:46 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 # define AMATERIA_HPP
 
 # include "ICharacter.hpp"
-# include "iostream"
+# include "debug.hpp"
+# include <iostream>
 
 class AMateria
 {

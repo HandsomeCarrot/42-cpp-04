@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:17:53 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/17 14:36:32 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/17 17:10:09 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 AMateria::AMateria(void) :
 	type_("default materia")
 {
-	std::cout << "AMateria default constructor called" << std::endl;
+	DEBUG_MSG("AMateria default constructor called");
 }
 
 /**
@@ -27,7 +27,7 @@ AMateria::AMateria(void) :
 AMateria::AMateria(std::string const &type) :
 	type_(type)
 {
-	std::cout << "AMateria parameterized constructor called" << std::endl;
+	DEBUG_MSG("AMateria parameterized constructor called");
 }
 
 /**
@@ -38,7 +38,7 @@ AMateria::AMateria(std::string const &type) :
 AMateria::AMateria(AMateria const &other) :
 	type_(other.getType())
 {
-	std::cout << "AMateria copy constructor called" << std::endl;
+	DEBUG_MSG("AMateria copy constructor called");
 }
 
 /**
@@ -46,7 +46,7 @@ AMateria::AMateria(AMateria const &other) :
  */
 AMateria::~AMateria(void)
 {
-	std::cout << "AMateria destructor called" << std::endl;
+	DEBUG_MSG("AMateria destructor called");
 }
 
 /**
@@ -62,7 +62,7 @@ AMateria	&AMateria::operator=(AMateria const &other)
 {
 	(void)other;
 
-	std::cout << "AMateria assignment operator called" << std::endl;
+	DEBUG_MSG("AMateria assignment operator called");
 	return (*this);
 }
 
@@ -79,7 +79,8 @@ std::string const &AMateria::getType(void) const
 */
 void AMateria::use(ICharacter& target)
 {
-	std::cout << "Did nothing to " << target.getName() << std::endl;
+	(void)target;
+	DEBUG_MSG("Did nothing to " << target.getName());
 }
 
 std::ostream	&operator<<(std::ostream &os, const AMateria &c)

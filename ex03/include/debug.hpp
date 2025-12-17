@@ -1,32 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   Ice.hpp                                            :+:      :+:    :+:   */
+/*   debug.hpp                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/15 18:17:44 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/17 17:11:39 by vpoka            ###   ########.fr       */
+/*   Created: 2025/12/17 17:00:00 by vpoka             #+#    #+#             */
+/*   Updated: 2025/12/17 16:59:58 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef ICE_HPP
-# define ICE_HPP
+#ifndef DEBUG_HPP
+# define DEBUG_HPP
 
-# include "AMateria.hpp"
-# include "debug.hpp"
+# include <iostream>
 
-class Ice : public AMateria
-{
-public:
-	Ice(void);
-	Ice(const Ice &other);
-	~Ice(void);
+# ifdef DEBUG
+#  define DEBUG_MSG(x) std::cout << x << std::endl
+# else
+#  define DEBUG_MSG(x)
+# endif
 
-	Ice	&operator=(const Ice &other);
-
-	AMateria *clone(void) const;
-	void use(ICharacter& target);
-};
-
-#endif /* ICE_HPP */
+#endif /* DEBUG_HPP */

@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:17:57 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/17 16:16:37 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/17 17:09:00 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 Character::Character(void) :
 	name_("default name")
 {
-	std::cout << "Character default constructor called" << std::endl;
+	DEBUG_MSG("Character default constructor called");
 	for (int i = 0; i < 4; i++)
 		this->inventory_[i] = NULL;
 }
@@ -32,7 +32,7 @@ Character::Character(void) :
 Character::Character(std::string const &name) :
 	name_(name)
 {
-	std::cout << "Character parameterized constructor called" << std::endl;
+	DEBUG_MSG("Character parameterized constructor called");
 	for (int i = 0; i < 4; i++)
 		this->inventory_[i] = NULL;
 }
@@ -45,7 +45,7 @@ Character::Character(std::string const &name) :
 Character::Character(const Character &other) :
 	name_(other.getName())
 {
-	std::cout << "Character copy constructor called" << std::endl;
+	DEBUG_MSG("Character copy constructor called");
 	for (int i = 0; i < 4; i++)
 	{
 		if (other.inventory_[i])
@@ -58,7 +58,7 @@ Character::Character(const Character &other) :
 */
 Character::~Character(void)
 {
-	std::cout << "Character destructor called" << std::endl;
+	DEBUG_MSG("Character destructor called");
 	for (int i = 0; i < 4; i++)
 	{
 		if (this->inventory_[i])
@@ -75,7 +75,7 @@ Character::~Character(void)
 */
 Character	&Character::operator=(const Character &other)
 {
-	std::cout << "Character assignment operator called" << std::endl;
+	DEBUG_MSG("Character assignment operator called");
 	if (this != &other)
 	{
 		this->name_ = other.getName();
@@ -104,7 +104,7 @@ void Character::equip(AMateria* m)
 		if (!this->inventory_[i])
 		{
 			this->inventory_[i] = m;
-			std::cout << *this << " equipped " << *m << " in slot " << i << std::endl;
+			DEBUG_MSG(*this << " equipped " << *m << " in slot " << i);
 			return ;
 		}
 	}
@@ -114,7 +114,7 @@ void Character::unequip(int idx)
 {
 	if (idx >= 0 && idx < 4)
 	{
-		std::cout << *this << " unequipped " << *this->inventory_[idx] << std::endl;
+		DEBUG_MSG(*this << " unequipped " << *this->inventory_[idx]);
 		this->inventory_[idx] = NULL;
 	}
 }

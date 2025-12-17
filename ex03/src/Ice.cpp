@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:18:02 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/17 14:11:30 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/17 17:10:19 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@
 Ice::Ice(void) :
 	AMateria("ice")
 {
-	std::cout << "Ice default constructor called" << std::endl;
+	DEBUG_MSG("Ice default constructor called");
 }
 
 /**
@@ -29,7 +29,7 @@ Ice::Ice(void) :
 Ice::Ice(const Ice &other) :
 	AMateria(other)
 {
-	std::cout << "Cure copy constructor called" << std::endl;
+	DEBUG_MSG("Cure copy constructor called");
 }
 
 /**
@@ -37,7 +37,7 @@ Ice::Ice(const Ice &other) :
 */
 Ice::~Ice(void)
 {
-	std::cout << "Ice destructor called" << std::endl;
+	DEBUG_MSG("Ice destructor called");
 }
 
 /**
@@ -51,7 +51,7 @@ Ice	&Ice::operator=(const Ice &other)
 {
 	if (this != &other)
 		AMateria::operator=(other);
-	std::cout << "Cure assignment operator called" << std::endl;
+	DEBUG_MSG("Cure assignment operator called");
 	return (*this);
 }
 

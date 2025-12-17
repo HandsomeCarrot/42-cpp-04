@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:18:00 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/15 18:18:01 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/17 12:29:57 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,11 @@
 /**
  * @brief default constructor
 */
-Cure::Cure(void) //std inits? :
+Cure::Cure(void) :
+	AMateria("cure")
 {
 	std::cout << "Cure default constructor called" << std::endl;
 }
-
-/**
- * @brief parameterized constructor
-*/
-/*
-Cure::Cure(<all parameters of class>) :
-	m_param1(param1),
-	m_param2(param2),
-	...
-{
-	std::cout << "Cure parameterized constructor called" << std::endl;
-}
-*/
 
 /**
  * @brief copy constructor
@@ -39,8 +27,7 @@ Cure::Cure(<all parameters of class>) :
  * @param other object to copy
 */
 Cure::Cure(const Cure &other) :
-	//m_param1(other.m_param1),
-	//...
+	AMateria(other)
 {
 	std::cout << "Cure copy constructor called" << std::endl;
 }
@@ -63,27 +50,20 @@ Cure::~Cure(void)
 Cure	&Cure::operator=(const Cure &other)
 {
 	if (this != &other)
-	{
-		//m_param1 = other.m_param1;
-		//setParam1(other.getParam1());
-		//copy all params
-	}
+		AMateria::operator=(other);
 	std::cout << "Cure assignment operator called" << std::endl;
 	return (*this);
 }
 
-/** 
- * @brief output stream operator
- * 
- * @param os reference to the outputstream
- * @param class reference to the class object
- * 
- * @return reference to the output stream
-*/
-/*
-std::ostream	&operator<<(std::ostream &os, const Cure &c)
+AMateria *clone(void)
 {
-	os << "some info about Cure";
-	return (os);
+	return (new Cure());
 }
-*/
+
+/**
+ * @brief prints a message
+ */
+void use(ICharacter& target)
+{
+	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
+}

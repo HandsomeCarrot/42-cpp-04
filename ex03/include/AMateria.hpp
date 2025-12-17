@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:17:38 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/16 17:21:27 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/16 18:07:59 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ public:
 
 	std::string const &getType(void) const;
 
-	virtual AMateria* clone(void) const = 0;
+	virtual AMateria *clone(void) const = 0;
 	virtual void use(ICharacter& target);
 };
 

@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:18:09 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/15 18:18:12 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/17 16:12:46 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,23 +15,13 @@
 /**
  * @brief default constructor
 */
-MateriaSource::MateriaSource(void) //std inits? :
+MateriaSource::MateriaSource(void) :
+	storage_used_(0)
 {
 	std::cout << "MateriaSource default constructor called" << std::endl;
+	for (int i = 0; i < 4; i++)
+		this->storage_[i] = NULL;
 }
-
-/**
- * @brief parameterized constructor
-*/
-/*
-MateriaSource::MateriaSource(<all parameters of class>) :
-	m_param1(param1),
-	m_param2(param2),
-	...
-{
-	std::cout << "MateriaSource parameterized constructor called" << std::endl;
-}
-*/
 
 /**
  * @brief copy constructor
@@ -39,10 +29,14 @@ MateriaSource::MateriaSource(<all parameters of class>) :
  * @param other object to copy
 */
 MateriaSource::MateriaSource(const MateriaSource &other) :
-	//m_param1(other.m_param1),
-	//...
+	storage_used_(other.storage_used_)
 {
 	std::cout << "MateriaSource copy constructor called" << std::endl;
+	for (int i = 0; i < 4; i++)
+	{
+		if (other.storage_[i])
+			this->storage_[i] = other.storage_[i]->clone();
+	}
 }
 
 /**
@@ -51,6 +45,11 @@ MateriaSource::MateriaSource(const MateriaSource &other) :
 MateriaSource::~MateriaSource(void)
 {
 	std::cout << "MateriaSource destructor called" << std::endl;
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->storage_[i])
+			delete this->storage_[i];
+	}
 }
 
 /**
@@ -62,28 +61,35 @@ MateriaSource::~MateriaSource(void)
 */
 MateriaSource	&MateriaSource::operator=(const MateriaSource &other)
 {
+	std::cout << "MateriaSource assignment operator called" << std::endl;
 	if (this != &other)
 	{
-		//m_param1 = other.m_param1;
-		//setParam1(other.getParam1());
-		//copy all params
+		this->storage_used_ = other.storage_used_;
+		for (int i = 0; i < 4; i++)
+		{
+			if (this->storage_[i])
+				delete this->storage_[i];
+			if (other.storage_[i])
+				this->storage_[i] = other.storage_[i]->clone();
+			else
+				this->storage_[i] = NULL;
+		}
 	}
-	std::cout << "MateriaSource assignment operator called" << std::endl;
 	return (*this);
 }
 
-/** 
- * @brief output stream operator
- * 
- * @param os reference to the outputstream
- * @param class reference to the class object
- * 
- * @return reference to the output stream
-*/
-/*
-std::ostream	&operator<<(std::ostream &os, const MateriaSource &c)
+void MateriaSource::learnMateria(AMateria *m)
 {
-	os << "some info about MateriaSource";
-	return (os);
+	if (this->storage_used_ < 4)
+		this->storage_[this->storage_used_] = m;
 }
-*/
+
+AMateria* MateriaSource::createMateria(std::string const & type)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (type == this->storage_[i]->getType())
+			return (this->storage_[i]->clone());
+	}
+	return (0);
+}

@@ -6,28 +6,31 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:17:50 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/15 18:17:52 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/17 16:12:51 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef MATERIASOURCE_HPP
 # define MATERIASOURCE_HPP
 
+# include "AMateria.hpp"
+# include "IMateriaSource.hpp"
 # include <iostream>
 
-class MateriaSource
+class MateriaSource : public IMateriaSource
 {
-private:
 protected:
+	AMateria *storage_[4];
+	int storage_used_;
 public:
 	MateriaSource(void);
-	//MateriaSource(<all parameters of class>);
 	MateriaSource(const MateriaSource &other);
 	~MateriaSource(void);
 
 	MateriaSource	&operator=(const MateriaSource &other);
-};
 
-//std::ostream	&operator<<(std::ostream &os, const MateriaSource &c);
+	void learnMateria(AMateria *m);
+	AMateria* createMateria(std::string const & type);
+};
 
 #endif /* MATERIASOURCE_HPP */

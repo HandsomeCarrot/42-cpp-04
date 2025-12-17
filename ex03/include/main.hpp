@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:09:36 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/17 14:13:42 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/17 16:13:24 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,7 @@
 # include "Ice.hpp"
 # include "Cure.hpp"
 # include "Character.hpp"
+# include "IMateriaSource.hpp"
+# include "MateriaSource.hpp"
 
 #endif /* MAIN_HPP */

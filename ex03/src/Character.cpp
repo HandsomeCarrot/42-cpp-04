@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:17:57 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/17 14:36:17 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/17 16:16:37 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
  * @brief default constructor
 */
 Character::Character(void) :
-	name_("default character")
+	name_("default name")
 {
 	std::cout << "Character default constructor called" << std::endl;
 	for (int i = 0; i < 4; i++)

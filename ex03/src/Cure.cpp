@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:18:00 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/17 12:29:57 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/17 14:11:43 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ Cure	&Cure::operator=(const Cure &other)
 	return (*this);
 }
 
-AMateria *clone(void)
+AMateria *Cure::clone(void) const
 {
 	return (new Cure());
 }
@@ -63,7 +63,7 @@ AMateria *clone(void)
 /**
  * @brief prints a message
  */
-void use(ICharacter& target)
+void Cure::use(ICharacter& target)
 {
 	std::cout << "* heals " << target.getName() << "'s wounds *" << std::endl;
 }

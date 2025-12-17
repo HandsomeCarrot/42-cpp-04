@@ -6,28 +6,35 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:17:57 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/15 22:06:32 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/17 14:36:17 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/Character.hpp"
+#include <cstddef>
 
 /**
  * @brief default constructor
 */
 Character::Character(void) :
-	name_("default")
+	name_("default character")
 {
 	std::cout << "Character default constructor called" << std::endl;
+	for (int i = 0; i < 4; i++)
+		this->inventory_[i] = NULL;
 }
 
 /**
  * @brief parameterized constructor
+ * 
+ * @param name name of the 'character'
 */
 Character::Character(std::string const &name) :
 	name_(name)
 {
 	std::cout << "Character parameterized constructor called" << std::endl;
+	for (int i = 0; i < 4; i++)
+		this->inventory_[i] = NULL;
 }
 
 /**
@@ -36,9 +43,14 @@ Character::Character(std::string const &name) :
  * @param other object to copy
 */
 Character::Character(const Character &other) :
-	//...
+	name_(other.getName())
 {
 	std::cout << "Character copy constructor called" << std::endl;
+	for (int i = 0; i < 4; i++)
+	{
+		if (other.inventory_[i])
+			this->inventory_[i] = other.inventory_[i]->clone();
+	}
 }
 
 /**
@@ -47,6 +59,11 @@ Character::Character(const Character &other) :
 Character::~Character(void)
 {
 	std::cout << "Character destructor called" << std::endl;
+	for (int i = 0; i < 4; i++)
+	{
+		if (this->inventory_[i])
+			delete this->inventory_[i];
+	}
 }
 
 /**
@@ -58,28 +75,58 @@ Character::~Character(void)
 */
 Character	&Character::operator=(const Character &other)
 {
+	std::cout << "Character assignment operator called" << std::endl;
 	if (this != &other)
 	{
-		//m_param1 = other.m_param1;
-		//setParam1(other.getParam1());
-		//copy all params
+		this->name_ = other.getName();
+		for (int i = 0; i < 4; i++)
+		{
+			if (this->inventory_[i])
+				delete this->inventory_[i];
+			if (other.inventory_[i])
+				this->inventory_[i] = other.inventory_[i]->clone();
+			else
+				this->inventory_[i] = NULL;
+		}
 	}
-	std::cout << "Character assignment operator called" << std::endl;
 	return (*this);
 }
 
-/** 
- * @brief output stream operator
- * 
- * @param os reference to the outputstream
- * @param class reference to the class object
- * 
- * @return reference to the output stream
-*/
-/*
+std::string const &Character::getName(void) const
+{
+	return (this->name_);
+}
+
+void Character::equip(AMateria* m)
+{
+	for (int i = 0; i < 4; i++)
+	{
+		if (!this->inventory_[i])
+		{
+			this->inventory_[i] = m;
+			std::cout << *this << " equipped " << *m << " in slot " << i << std::endl;
+			return ;
+		}
+	}
+}
+
+void Character::unequip(int idx)
+{
+	if (idx >= 0 && idx < 4)
+	{
+		std::cout << *this << " unequipped " << *this->inventory_[idx] << std::endl;
+		this->inventory_[idx] = NULL;
+	}
+}
+
+void Character::use(int idx, ICharacter& target)
+{
+	if (idx >= 0 && idx < 4 && this->inventory_[idx] != NULL)
+		this->inventory_[idx]->use(target);
+}
+
 std::ostream	&operator<<(std::ostream &os, const Character &c)
 {
-	os << "some info about Character";
+	os << "'" << c.getName() << "'";
 	return (os);
 }
-*/

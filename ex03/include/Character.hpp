@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:17:40 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/16 17:27:00 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/17 14:18:59 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,6 @@ public:
 	void use(int idx, ICharacter& target);
 };
 
-//std::ostream	&operator<<(std::ostream &os, const Character &c);
+std::ostream	&operator<<(std::ostream &os, const Character &c);
 
 #endif /* CHARACTER_HPP */

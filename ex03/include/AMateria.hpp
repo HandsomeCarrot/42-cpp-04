@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:17:38 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/16 18:07:59 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/17 14:20:05 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ public:
 	AMateria(void);
 	AMateria(std::string const &type);
 	AMateria(AMateria const &other);
-	~AMateria(void);
+	virtual ~AMateria(void);
 
 	AMateria	&operator=(AMateria const &other);
 

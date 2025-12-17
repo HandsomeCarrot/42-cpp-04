@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:17:53 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/16 17:22:28 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/17 14:36:32 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
  * @brief default constructor
 */
 AMateria::AMateria(void) :
-	type_("default")
+	type_("default materia")
 {
 	std::cout << "AMateria default constructor called" << std::endl;
 }
@@ -60,22 +60,10 @@ AMateria::~AMateria(void)
  */
 AMateria	&AMateria::operator=(AMateria const &other)
 {
+	(void)other;
+
 	std::cout << "AMateria assignment operator called" << std::endl;
 	return (*this);
-}
-
-/** 
- * @brief output stream operator
- * 
- * @param os reference to the outputstream
- * @param class reference to the class object
- * 
- * @return reference to the output stream
-*/
-std::ostream	&operator<<(std::ostream &os, const AMateria &c)
-{
-	os << c.getType();
-	return (os);
 }
 
 /**
@@ -83,7 +71,7 @@ std::ostream	&operator<<(std::ostream &os, const AMateria &c)
  */
 std::string const &AMateria::getType(void) const
 {
-	return (type_);
+	return (this->type_);
 }
 
 /** 
@@ -92,4 +80,10 @@ std::string const &AMateria::getType(void) const
 void AMateria::use(ICharacter& target)
 {
 	std::cout << "Did nothing to " << target.getName() << std::endl;
+}
+
+std::ostream	&operator<<(std::ostream &os, const AMateria &c)
+{
+	os << "'" << c.getType() << "'";
+	return (os);
 }

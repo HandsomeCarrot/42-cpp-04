@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:18:02 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/17 12:31:26 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/17 14:11:30 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,7 +55,7 @@ Ice	&Ice::operator=(const Ice &other)
 	return (*this);
 }
 
-AMateria *clone(void)
+AMateria *Ice::clone(void) const
 {
 	return (new Ice());
 }
@@ -63,7 +63,7 @@ AMateria *clone(void)
 /**
  * @brief prints a message
  */
-void use(ICharacter& target)
+void Ice::use(ICharacter& target)
 {
 	std::cout << "* shoots an ice bolt at " << target.getName() << " *" << std::endl;
 }

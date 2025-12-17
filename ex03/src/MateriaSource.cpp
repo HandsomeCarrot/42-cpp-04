@@ -6,7 +6,7 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:18:09 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/17 16:12:46 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/17 16:24:44 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -81,12 +81,15 @@ MateriaSource	&MateriaSource::operator=(const MateriaSource &other)
 void MateriaSource::learnMateria(AMateria *m)
 {
 	if (this->storage_used_ < 4)
+	{
 		this->storage_[this->storage_used_] = m;
+		storage_used_++;
+	}
 }
 
 AMateria* MateriaSource::createMateria(std::string const & type)
 {
-	for (int i = 0; i < 4; i++)
+	for (int i = 0; i < this->storage_used_; i++)
 	{
 		if (type == this->storage_[i]->getType())
 			return (this->storage_[i]->clone());

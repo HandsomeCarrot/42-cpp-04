@@ -6,62 +6,25 @@
 /*   By: vpoka <vpoka@student.42vienna.com>         +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/15 18:09:34 by vpoka             #+#    #+#             */
-/*   Updated: 2025/12/17 16:23:17 by vpoka            ###   ########.fr       */
+/*   Updated: 2025/12/17 18:53:13 by vpoka            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../include/main.hpp"
+
+void printHeader(std::string title)
+{
+	std::cout << CYAN << "======== " << title << " ========" << RESET << std::endl;
+}
 
 void printSubHeader(std::string title)
 {
 	std::cout << YELLOW << "--- " << title << " ---" << RESET << std::endl;
 }
 
-int	main(void)
+void testStandard(void)
 {
-	// printSubHeader("init 'me'");
-	// ICharacter	*me = new Character("me");
-
-	// printSubHeader("init new ice");
-	// AMateria* tmp = new Ice();
-
-	// printSubHeader("'me' equipping ice");
-	// me->equip(tmp);
-
-	// printSubHeader("init 'bob'");
-	// ICharacter* bob = new Character("bob");
-
-	// printSubHeader("'me' attacking 'bob'");
-	// me->use(0, *bob);
-
-	// printSubHeader("'me' removing ice");
-	// me->unequip(0);
-	// delete tmp;
-
-	// printSubHeader("'me' equipping 4 spells");
-	// me->equip(new Cure());
-	// me->equip(new Ice());
-	// me->equip(new Cure());
-	// me->equip(new Ice());
-
-	// printSubHeader("'me' trying to equip another spell");
-	// tmp = new Cure();
-	// me->equip(tmp);
-
-	// printSubHeader("'me' using all spells in inventory");
-	// for (int i = 0; i < 4; i++)
-	// 	me->use(i, *bob);
-
-	// printSubHeader("deleting extra spell");
-	// delete tmp;
-
-	// printSubHeader("deleting 'bob'");
-	// delete bob;
-
-	// printSubHeader("deleting 'me'");
-	// delete me;
-
-	// printSubHeader("end");
+	printHeader("Standard Test");
 
 	IMateriaSource* src = new MateriaSource();
 	src->learnMateria(new Ice());
@@ -83,6 +46,104 @@ int	main(void)
 	delete bob;
 	delete me;
 	delete src;
+}
+
+void testDeepCopy(void)
+{
+	printHeader("Deep Copy Test");
+		
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+
+	Character* original = new Character("Original");
+	AMateria* tmp = src->createMateria("ice");
+	original->equip(tmp);
+
+	Character* copy = new Character(*original);
+
+	std::cout << "Original name: " << original->getName() << std::endl;
+	std::cout << "Copy name: " << copy->getName() << std::endl;
+
+	tmp = src->createMateria("cure");
+	copy->equip(tmp);
+
+	ICharacter* target = new Character("Target");
+
+	printSubHeader("Original State");
+	original->use(0, *target);
+	original->use(1, *target); // Should be empty
+
+	printSubHeader("Copy State");
+	copy->use(0, *target);
+	copy->use(1, *target); // Should be Cure
+
+	delete original;
+	delete copy;
+	delete target;
+	delete src;
+}
+
+void testInventoryFull(void)
+{
+	printHeader("Inventory Full Test");
+
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+
+	ICharacter* hoarder = new Character("Hoarder");
+	for (int i = 0; i < 4; i++)
+		hoarder->equip(src->createMateria("ice"));
+
+	printSubHeader("Equipping 5th Materias");
+	AMateria* extra = src->createMateria("cure");
+	hoarder->equip(extra);
+
+	ICharacter* nobody = new Character("nobody");
+
+	printSubHeader("Using all Materias");
+	for (int i = 0; i < 4; i++)
+		hoarder->use(i, *nobody);
+
+	delete extra;
+	delete hoarder;
+	delete src;
+}
+
+void testUnequip(void)
+{
+	printHeader("Unequip Test");
+
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	ICharacter* clumsy = new Character("Clumsy");
+	AMateria* tmp = src->createMateria("ice");
+	clumsy->equip(tmp);
+
+	ICharacter* target = new Character("Target");
+
+	printSubHeader("Use Before Unequip");
+	clumsy->use(0, *target);
+
+	printSubHeader("Unequiping Slot 0");
+	clumsy->unequip(0); // Leaks if we don't hold tmp
+
+	printSubHeader("Use After Unequip (Should do nothing)");
+	clumsy->use(0, *target);
+
+	delete tmp; // Manual cleanup of unequipped item
+	delete clumsy;
+	delete target;
+	delete src;
+}
+
+int	main(void)
+{
+	testStandard();
+	testDeepCopy();
+	testInventoryFull();
+	testUnequip();
 
 	return (0);
 }
